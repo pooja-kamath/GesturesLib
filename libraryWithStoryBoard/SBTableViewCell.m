@@ -41,6 +41,7 @@
         
         //add button to the table view cell
         [self addSubview:issueButton ];
+        [issueButton release];
         
         //set the frame for the button
         returnButton.frame = CGRectZero;
@@ -56,6 +57,7 @@
         
         //add button to the table view cell
         [self addSubview:returnButton];
+        [returnButton release];
         
         //set a accessory button to display details
         self.accessoryType = UITableViewCellAccessoryDetailButton;
@@ -127,8 +129,7 @@
 {
     
     
-    [issueButton release];
-    [returnButton release];
+
     [super dealloc];
     
 }

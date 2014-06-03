@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SBPDFViewController : UIViewController
+@interface SBPDFViewController : UIViewController 
 @property (assign)id delegate;
+- (IBAction)handlePinch:(UIPinchGestureRecognizer *)recognizer;
+- (IBAction)handleRotate:(UIRotationGestureRecognizer *)recognizer;
 @end

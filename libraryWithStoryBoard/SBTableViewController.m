@@ -42,10 +42,12 @@
     
 
 }
+
 -(void)viewWillAppear:(BOOL)animated
 {
     [self.table reloadData];
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -102,7 +104,12 @@
     return cell;
 
 }
-
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [_sharedBookManager removeBook:[_sharedBookManager getBookAtIndex:indexPath.row]];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
 -(void)didFinish
 {
     //dissmiss the detail view 
@@ -170,8 +177,8 @@
 
 - (void)dealloc {
     
-    
-    [_table release];
+           [_table release];
+    _table=nil;
     [super dealloc];
 }
 @end

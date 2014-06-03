@@ -33,9 +33,10 @@
     
     
     //load the file that is downloaded and saved in the webview
-    NSString *path = @"/Users/poojakamath/Desktop/strybrd-master copy 2/download.pdf ";
+    NSString *path = @"/Users/poojakamath/Desktop/strybrd-master copy 3/download.pdf ";
     NSURL *targetURL = [NSURL fileURLWithPath:path];
-    NSURLRequest *request = [NSURLRequest requestWithURL:targetURL];
+        NSURLRequest *request = [NSURLRequest requestWithURL:targetURL];
+   
     [_webView loadRequest:request];
     
     //add the web view to the subview and release
@@ -68,8 +69,8 @@
     } else {
         NSLog(@"File doesn't exists" );
     }
-    
-    
+    [manager release];
+   //push initial view controller
     
     UITabBarController *tab=[self.storyboard instantiateViewControllerWithIdentifier:@"initialView"];
     [self.navigationController pushViewController:tab animated:YES];
@@ -77,9 +78,22 @@
     
 }
 
+- (IBAction)handlePinch:(UIPinchGestureRecognizer *)recognizer
+{
+
+    recognizer.view.transform = CGAffineTransformScale(recognizer.view.transform, recognizer.scale, recognizer.scale);
+        recognizer.scale = 1;
+    
+}
+
+- (IBAction)handleRotate:(UIRotationGestureRecognizer *)recognizer {
+    recognizer.view.transform = CGAffineTransformRotate(recognizer.view.transform, recognizer.rotation);
+    recognizer.rotation = 0;
+}
+
 - (void)dealloc {
     [_webView release];
-    
+    _webView=nil;
     [super dealloc];
 }
 @end

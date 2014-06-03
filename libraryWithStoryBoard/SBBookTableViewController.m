@@ -97,7 +97,6 @@
         //dissmiss the detail view
     [self dismissViewControllerAnimated:YES completion:nil];
     
-   
 }
 
 -(void)downloadButton:(UIButton*)sender
@@ -121,7 +120,12 @@
 - (void)dealloc
 {
     
+    [bookList release];
+    bookList=nil;
+    [urls release];
+    urls=nil;
     [_bookTable release];
+    _bookTable=nil;
     [super dealloc];
 }
 @end

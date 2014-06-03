@@ -19,6 +19,6 @@
 @property (assign ) NSArray *indexPaths;
 
 //table view cell
-@property (assign)   SBTableViewCell *cell;
+@property (assign)  SBTableViewCell *cell;
 
 @end

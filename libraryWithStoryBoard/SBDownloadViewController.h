@@ -30,7 +30,7 @@
 - (IBAction)oKButton:(id)sender;
 
 //object of nsurlconnection
-@property (assign) NSURLConnection *connection;
+@property (assign) NSURLConnection *connectionToDownload;
 
 
 //mutable data that stores the image data that is being downloaded

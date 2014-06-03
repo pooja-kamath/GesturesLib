@@ -97,6 +97,7 @@
     
     
 }
+//returns -1 if search fails else returns the index of the book
 -(NSInteger)searchBookWithTitle:(NSString *)titleToSearch
 {
 //   NSLog(@"%lu",(unsigned long)[bookArray indexOfObjectIdenticalTo:titleToSearch]);

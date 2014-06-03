@@ -25,7 +25,7 @@
 @synthesize  timeLabel;
 @synthesize  length;
 @synthesize downloadingLabel;
-@synthesize connection;
+@synthesize connectionToDownload;
 @synthesize urlToDownload;
 @synthesize delegate;
 
@@ -48,9 +48,8 @@
     
     
     //create a object of nsurlconnection with url object
-   connection=[NSURLConnection connectionWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlToDownload]]delegate:self];
-    
-    //set progressbar style and initial value
+   connectionToDownload=[NSURLConnection connectionWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlToDownload]]delegate:self];
+       //set progressbar style and initial value
     progressView.progressViewStyle=UIProgressViewStyleDefault;
     progressView.progress=0.0 ;
     _okButton.enabled=NO;
@@ -59,10 +58,9 @@
 }
 - (IBAction)backButton:(id)sender
 {
-    //cancel the connection that is downloading
-    [connection cancel];
-    
-    //call the delegate to dismiss the viewcontroller
+        //cancel the connection that is downloading
+    [connectionToDownload cancel];
+        //call the delegate to dismiss the viewcontroller
     [delegate didFinishLoading];
 }
 
@@ -96,24 +94,27 @@
 //when the download is complete enable the ok button and save the downloaded contents to a file
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-  
     downloadingLabel.text=@"Download Complete";
    _okButton.enabled=YES;
     [self saveLocally:downloadedData];
+    [downloadedData release];
     
 }
 
 - (void)saveLocally:(NSData *)imgData
 {
-    NSString *fileToWrite=@"/Users/poojakamath/Desktop/strybrd-master copy 2/download.pdf ";
+    
+    NSLog(@"%lu",(unsigned long)connectionToDownload.retainCount);
+    NSString *fileToWrite=@"/Users/poojakamath/Desktop/strybrd-master copy 3/download.pdf ";
     
         [imgData writeToFile:fileToWrite atomically:YES];
 }
 
 
-- (IBAction)oKButton:(id)sender {
+- (IBAction)oKButton:(id)sender
+{
     
-    //load the next view containing a web view
+       //load the next view containing a web view to display the pdf
     UIViewController *pdfView = [self.storyboard instantiateViewControllerWithIdentifier:@"pdfView"];
     [self.navigationController pushViewController:pdfView animated:YES];
     
@@ -128,11 +129,17 @@
     
    
    [downloadedData release];
+    downloadedData=nil;
    [downloadingLabel release];
+    downloadingLabel=nil;
     [progressView release];
+    progressView=nil;
     [timeLabel release];
+    timeLabel=nil;
     [_okButton release];
-   
+    _okButton=nil;
+    [urlToDownload release];
+    urlToDownload=nil;
     [super dealloc];
     
 }

@@ -17,7 +17,6 @@
 - (IBAction)okButton:(id)sender;
 - (IBAction)deleteButton:(id)sender;
 @property (retain, nonatomic) IBOutlet UISwitch *issueSwitch;
-@property (retain, nonatomic) IBOutlet NSLayoutConstraint *btnOkLeftConstraint;
 
 @end
 
@@ -106,10 +105,14 @@
 - (void)dealloc {
     
     [_titleLabel release];
+    _titleLabel=nil;
     [_bookIdLabel release];
+    _bookIdLabel=nil;
     [_authorLabel release];
+    _authorLabel=nil;
     [_issueSwitch release];
-    [_btnOkLeftConstraint release];
+    _issueSwitch=nil;
+    
     [super dealloc];
 }
 

@@ -32,6 +32,7 @@
         
         //add the button to subview
         [self addSubview:downloadButton];
+        [downloadButton release];
         
     }
     return self;
@@ -71,5 +72,11 @@
     [delegate downloadButton:sender];
     
     
+}
+- (void)dealloc
+{
+    [downloadButton release];
+    downloadButton=nil;
+    [super dealloc];
 }
 @end

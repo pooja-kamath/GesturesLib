@@ -104,6 +104,7 @@
 - (void)dealloc {
     
     [_searchLabel release];
+    _searchLabel=nil;
     [super dealloc];
 }
 
