@@ -12,7 +12,8 @@
 
 @property (retain, nonatomic) IBOutlet UIWebView *webView;
 - (IBAction)exitButton:(id)sender;
-
+- (IBAction)handlePinch:(UIPinchGestureRecognizer *)recognizer;
+- (IBAction)handleRotate:(UIRotationGestureRecognizer *)recognizer;
 @end
 
 @implementation SBPDFViewController
@@ -33,18 +34,18 @@
     
     
     //load the file that is downloaded and saved in the webview
-    NSString *path = @"/Users/poojakamath/Desktop/strybrd-master copy 3/download.pdf ";
-    NSURL *targetURL = [NSURL fileURLWithPath:path];
+
+    NSURL *targetURL = [NSURL fileURLWithPath: @"/Users/poojakamath/Desktop/strybrd-master copy 4/download.pdf "];
         NSURLRequest *request = [NSURLRequest requestWithURL:targetURL];
    
     [_webView loadRequest:request];
-    
+        
     //add the web view to the subview and release
     [self.view addSubview:_webView];
     [_webView release];
+    _webView =nil;
     
-    
-    
+        
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,7 +59,8 @@
     
     NSFileManager *manager = [NSFileManager defaultManager];
     // Need to check if the to be deleted file exists.
-    if ([manager fileExistsAtPath:@"/Users/poojakamath/Desktop/strybrd-master copy 2/download.pdf "]) {
+    if ([manager fileExistsAtPath:@"/Users/poojakamath/Desktop/strybrd-master copy 2/download.pdf "])
+    {
         NSError *error = nil;
         // This function also returnsYES if the item was removed successfully or if path was nil.
         // Returns NO if an error occurred.
@@ -66,14 +68,9 @@
         if (error) {
             NSLog(@"There is an Error: %@", error);
         }
-    } else {
-        NSLog(@"File doesn't exists" );
-    }
-    [manager release];
-   //push initial view controller
-    
-    UITabBarController *tab=[self.storyboard instantiateViewControllerWithIdentifier:@"initialView"];
-    [self.navigationController pushViewController:tab animated:YES];
+    } 
+   
+      [self dismissViewControllerAnimated:YES completion:nil];
     
     
 }
@@ -84,6 +81,7 @@
     recognizer.view.transform = CGAffineTransformScale(recognizer.view.transform, recognizer.scale, recognizer.scale);
         recognizer.scale = 1;
     
+    
 }
 
 - (IBAction)handleRotate:(UIRotationGestureRecognizer *)recognizer {
@@ -92,6 +90,7 @@
 }
 
 - (void)dealloc {
+    
     [_webView release];
     _webView=nil;
     [super dealloc];

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>bookList</key>
+		<string>programming guide</string>
+		<key>bookUrl</key>
+		<string>https://developer.apple.com/library/ios/documentation/iphone/conceptual/iphoneosprogrammingguide/iphoneappprogrammingguide.pdf</string>
+	</dict>
+    <dict>
+		<key>bookList</key>
+		<string>RoadMap iOS</string>
+		<key>bookUrl</key>
+		<string>https://developer.apple.com/library/ios/referencelibrary/GettingStarted/RoadMapiOS/RoadMapiOS.pdf</string>
+	</dict>
+    <dict>
+		<key>bookList</key>
+		<string>mobile hig</string>
+		<key>bookUrl</key>
+		<string>https://developer.apple.com/library/ios/documentation/userexperience/conceptual/mobilehig/MobileHIG.pdf</string>
+	</dict>
+    <dict>
+		<key>bookList</key>
+		<string>iPhoneOS</string>
+		<key>bookUrl</key>
+		<string>https://developer.apple.com/library/ios/documentation/WindowsViews/Conceptual/ViewPG_iPhoneOS/ViewPG_iPhoneOS.pdf</string>
+	</dict>
+    <dict>
+		<key>bookList</key>
+		<string>ViewPG_iPhoneOS</string>
+		<key>bookUrl</key>
+		<string>https://developer.apple.com/library/ios/documentation/WindowsViews/Conceptual/ViewPG_iPhoneOS/ViewPG_iPhoneOS.pdf</string>
+	</dict>
+    <dict>
+		<key>bookList</key>
+		<string>KernelProgramming</string>
+		<key>bookUrl</key>
+		<string>https://developer.apple.com/library/mac/documentation/Darwin/Conceptual/KernelProgramming/KernelProgramming.pdf</string>
+	</dict>
+    <dict>
+		<key>bookList</key>
+		<string>Xcode_Overview</string>
+		<key>bookUrl</key>
+		<string>https://developer.apple.com/library/mac/documentation/ToolsLanguages/Conceptual/Xcode_Overview/Xcode_Overview.pdf</string>
+	</dict>
+</array>
+</plist>

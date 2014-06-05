@@ -111,6 +111,17 @@
     return -1;
 
 }
+
+-(void)replaceBookAtIndex:(NSInteger)index WithBook:(SBBook *)book
+{
+    [bookArray replaceObjectAtIndex:index withObject:book];
+    //sort the books added to the array
+    [bookArray sortUsingComparator: ^(SBBook *obj1, SBBook *obj2) {
+        return[obj1.title compare:obj2.title options:NSLiteralSearch ];
+    }];
+
+}
+
 - (void)dealloc
 {
     

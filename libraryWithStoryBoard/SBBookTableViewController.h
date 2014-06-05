@@ -9,18 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "SBBookTableViewCell.h"
 #import "SBDownloadViewController.h"
-@interface SBBookTableViewController : UITableViewController <UITableViewDataSource ,UITableViewDelegate,bookCellDelegate,downloadViewDelegate>
+@interface SBBookTableViewController : UITableViewController <UITableViewDataSource ,UITableViewDelegate,bookCellDelegate>
 
 //shared manager instance
 @property (assign)   SBBookTableViewCell *cell;
 
 //array containing the list of books to download
-@property (assign) NSArray *bookList;
+@property (assign) NSMutableArray *bookList;
 
-//array containing the list of urls of the book to download
-@property (assign) NSArray *urls;
-
-//delegate
-@property (assign)id delegate;
 @end
 

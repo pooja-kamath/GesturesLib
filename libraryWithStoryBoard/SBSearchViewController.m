@@ -36,6 +36,7 @@
     
     //set the textfield delegate as self
     _searchLabel.delegate=self;
+    _searchLabel.clearsOnBeginEditing=YES;
     
 }
 
@@ -74,15 +75,7 @@
         SBDetailViewController *detailView = (SBDetailViewController *)segue.destinationViewController ;
         detailView.books=sender;
     
-    //set self as detail views delegate
-        detailView.delegate=self;
-   
-}
--(void)didFinish
-{
-    //dissmiss the detail view
-    [self dismissViewControllerAnimated:YES completion:nil];
-
+    
 }
 - (IBAction)cancelButton:(id)sender
 {
@@ -92,8 +85,7 @@
     [self.navigationController pushViewController:table animated:YES];
     
     
-    
-}
+   }
 -(BOOL)textFieldShouldReturn:(UITextField *)textfield
 {
     //resign keyboard

@@ -10,13 +10,14 @@
 #import "SBBookManager.h"
 #import "SBTableViewCell.h"
 #import "SBDetailViewController.h"
-@interface SBTableViewController : UITableViewController <UITableViewDataSource ,UITableViewDelegate,cellDelegate,detailViewDelegate>
+@interface SBTableViewController : UITableViewController <UITableViewDataSource ,UITableViewDelegate,cellDelegate>
 
 //shared manager instance
 @property (assign) SBBookManager *sharedBookManager;
 
 //indexpath to store the indexpaths to load individual rows
 @property (assign ) NSArray *indexPaths;
+
 
 //table view cell
 @property (assign)  SBTableViewCell *cell;

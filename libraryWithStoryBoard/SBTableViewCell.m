@@ -11,7 +11,7 @@
 @implementation SBTableViewCell
 @synthesize returnButton;
 @synthesize issueButton;
-//@synthesize cellLabel;
+
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -21,7 +21,7 @@
         
         
         // set the button color
-        UIColor *clr = [UIColor colorWithRed:0.89f green:0.81f blue:0.87f alpha:1];
+       UIColor *clr = [UIColor colorWithRed:0.89f green:0.81f blue:0.87f alpha:1];
         
         issueButton=[[UIButton alloc]init];
         returnButton=[[UIButton alloc]init];
@@ -128,9 +128,7 @@
 - (void)dealloc
 {
     
-    
-
-    [super dealloc];
+            [super dealloc];
     
 }
 

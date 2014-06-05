@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SBBookManager.h"
 #import "SBDetailViewController.h"
-@interface SBSearchViewController : UIViewController <detailViewDelegate>
+@interface SBSearchViewController : UIViewController 
 
 @property (assign) SBBookManager *sharedBookManager;
 

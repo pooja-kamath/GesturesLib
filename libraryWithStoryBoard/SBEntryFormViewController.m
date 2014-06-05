@@ -53,7 +53,9 @@
     _bookIdText.delegate = self;
     _authorText.delegate=self;
     
-    
+    _titleText.clearsOnBeginEditing=YES;
+    _bookIdText.clearsOnBeginEditing=YES;
+    _authorText.clearsOnBeginEditing=YES;
 
 }
 - (void)didReceiveMemoryWarning
@@ -159,7 +161,8 @@
     
 
 }
-- (void)dealloc {
+- (void)dealloc
+{
     
     [_titleText release];
     _titleText=nil;

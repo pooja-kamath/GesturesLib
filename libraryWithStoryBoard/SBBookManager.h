@@ -35,5 +35,5 @@
 //method to return the no of books 
 -(NSInteger )getNumberOfBooksAdded;
 -(NSInteger)searchBookWithTitle:(NSString *)titleToSearch;
-
+-(void)replaceBookAtIndex:(NSInteger)index WithBook:(SBBook *)book;
 @end

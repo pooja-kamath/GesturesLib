@@ -54,13 +54,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)table
 {
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)table  numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section
 {
     //return  count of books added
     return [_sharedBookManager getNumberOfBooksAdded];
@@ -104,24 +103,21 @@
     return cell;
 
 }
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
         [_sharedBookManager removeBook:[_sharedBookManager getBookAtIndex:indexPath.row]];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
 }
--(void)didFinish
-{
-    //dissmiss the detail view 
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
-}
+
 
 - (void)tableView:(UITableView *)table accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
     
     //perform segue and load the detail view
-    [self performSegueWithIdentifier:@"detailViewSegue" sender:[self.table cellForRowAtIndexPath:indexPath]];
+    [self performSegueWithIdentifier:@"detailViewSegue" sender:indexPath];
 }
 
 -(void)issueButton:(UIButton*)sender
@@ -141,6 +137,7 @@
                   nil];
     
     [self.table reloadRowsAtIndexPaths:indexPaths withRowAnimation: UITableViewRowAnimationFade];
+   
       
 }
 
@@ -160,24 +157,26 @@
                   [NSIndexPath indexPathForRow:sender.tag inSection:0 ],
                   nil];
     [self.table reloadRowsAtIndexPaths:indexPaths withRowAnimation: UITableViewRowAnimationFade];
+   
 }
 
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(SBTableViewCell *)sender
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(NSIndexPath *)sender
 {
   //send the index value to detail view
     if ([segue.identifier isEqualToString:@"detailViewSegue"])
     {
     SBDetailViewController *detailView = (SBDetailViewController *)segue.destinationViewController;
-    detailView.books=[_sharedBookManager getBookAtIndex:sender.tag];
-    detailView.delegate=self;
-    }
+    detailView.books=[_sharedBookManager getBookAtIndex:sender.row];
+        }
 }
 
 
-- (void)dealloc {
+- (void)dealloc
+{
     
-           [_table release];
+    
+    [_table release];
     _table=nil;
     [super dealloc];
 }

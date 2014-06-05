@@ -11,6 +11,7 @@
 		78A5489419344F3E000988A7 /* SBTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A5489319344F3E000988A7 /* SBTableViewController.m */; };
 		78BE1E4F1937018D0018914E /* SBDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BE1E4E1937018D0018914E /* SBDownloadViewController.m */; };
 		78C23B6C19374C9D00B00503 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 78C23B6B19374C9D00B00503 /* Default.png */; };
+		78C5AA98193EEDC300033844 /* bookList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 78C5AA97193EEDC300033844 /* bookList.plist */; };
 		78C6EC9A193C3B31000A5E49 /* SBBookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78C6EC99193C3B31000A5E49 /* SBBookTableViewCell.m */; };
 		78C6EC9D193C3D92000A5E49 /* SBBookTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78C6EC9C193C3D92000A5E49 /* SBBookTableViewController.m */; };
 		78C7454A193618560007BCC3 /* SBSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78C74549193618560007BCC3 /* SBSearchViewController.m */; };
@@ -32,7 +33,6 @@
 		78C7FD301933603F00E82ED1 /* SBBookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 78C7FD2F1933603F00E82ED1 /* SBBookManager.m */; };
 		78C7FD3E193367DC00E82ED1 /* SBTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78C7FD3D193367DC00E82ED1 /* SBTableViewCell.m */; };
 		78C7FD4119336BC500E82ED1 /* SBDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78C7FD4019336BC500E82ED1 /* SBDetailViewController.m */; };
-		78EF86DC193CA4380020A241 /* SBTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78EF86DB193CA4380020A241 /* SBTabViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +53,7 @@
 		78BE1E4D1937018D0018914E /* SBDownloadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBDownloadViewController.h; sourceTree = "<group>"; };
 		78BE1E4E1937018D0018914E /* SBDownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBDownloadViewController.m; sourceTree = "<group>"; };
 		78C23B6B19374C9D00B00503 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		78C5AA97193EEDC300033844 /* bookList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = bookList.plist; path = ../bookList.plist; sourceTree = "<group>"; };
 		78C6EC98193C3B31000A5E49 /* SBBookTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBBookTableViewCell.h; sourceTree = "<group>"; };
 		78C6EC99193C3B31000A5E49 /* SBBookTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBBookTableViewCell.m; sourceTree = "<group>"; };
 		78C6EC9B193C3D92000A5E49 /* SBBookTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBBookTableViewController.h; sourceTree = "<group>"; };
@@ -87,8 +88,6 @@
 		78C7FD3D193367DC00E82ED1 /* SBTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTableViewCell.m; sourceTree = "<group>"; };
 		78C7FD3F19336BC500E82ED1 /* SBDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBDetailViewController.h; sourceTree = "<group>"; };
 		78C7FD4019336BC500E82ED1 /* SBDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBDetailViewController.m; sourceTree = "<group>"; };
-		78EF86DA193CA4380020A241 /* SBTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBTabViewController.h; path = ../SBTabViewController.h; sourceTree = "<group>"; };
-		78EF86DB193CA4380020A241 /* SBTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBTabViewController.m; path = ../SBTabViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,8 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				78C7FD0519335B3C00E82ED1 /* Main.storyboard */,
-				78EF86DA193CA4380020A241 /* SBTabViewController.h */,
-				78EF86DB193CA4380020A241 /* SBTabViewController.m */,
 				78BE1E4D1937018D0018914E /* SBDownloadViewController.h */,
 				78BE1E4E1937018D0018914E /* SBDownloadViewController.m */,
 				788FF15E1938AB6700DE4F72 /* SBPDFViewController.h */,
@@ -177,6 +174,7 @@
 		78C7FCF919335B3C00E82ED1 /* libraryWithStoryBoard */ = {
 			isa = PBXGroup;
 			children = (
+				78C5AA97193EEDC300033844 /* bookList.plist */,
 				78A54895193453D9000988A7 /* view */,
 				78C7FD32193362DC00E82ED1 /* controller */,
 				78C7FD31193362BE00E82ED1 /* model */,
@@ -316,6 +314,7 @@
 				78C7FCFE19335B3C00E82ED1 /* InfoPlist.strings in Resources */,
 				78C23B6C19374C9D00B00503 /* Default.png in Resources */,
 				78C7FD0719335B3C00E82ED1 /* Main.storyboard in Resources */,
+				78C5AA98193EEDC300033844 /* bookList.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,7 +343,6 @@
 				78BE1E4F1937018D0018914E /* SBDownloadViewController.m in Sources */,
 				78C7FD4119336BC500E82ED1 /* SBDetailViewController.m in Sources */,
 				78C7454A193618560007BCC3 /* SBSearchViewController.m in Sources */,
-				78EF86DC193CA4380020A241 /* SBTabViewController.m in Sources */,
 				78C7FD3E193367DC00E82ED1 /* SBTableViewCell.m in Sources */,
 				78C7FD0A19335B3C00E82ED1 /* SBViewController.m in Sources */,
 				78C7FD2D19335FC700E82ED1 /* SBBook.m in Sources */,

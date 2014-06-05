@@ -13,7 +13,10 @@
 
 //iboutlet of ok button
 @property (retain, nonatomic) IBOutlet UIButton *okButton;
-
+@property (retain, nonatomic) IBOutlet UIBarButtonItem *backButton;
+@property (retain, nonatomic) IBOutlet UIButton *cancelButton;
+//expected length of the image that is downloaded
+@property(nonatomic, assign) float length;
 
 
 @end
@@ -27,7 +30,7 @@
 @synthesize downloadingLabel;
 @synthesize connectionToDownload;
 @synthesize urlToDownload;
-@synthesize delegate;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,6 +44,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
     
     //create a mutable data object to store the  data that is being downloaded
@@ -49,19 +53,26 @@
     
     //create a object of nsurlconnection with url object
    connectionToDownload=[NSURLConnection connectionWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlToDownload]]delegate:self];
-       //set progressbar style and initial value
+    
+     //set progressbar style and initial value
     progressView.progressViewStyle=UIProgressViewStyleDefault;
-    progressView.progress=0.0 ;
+    progressView.progress=0.0;
     _okButton.enabled=NO;
-    
-    
+    _backButton.enabled=NO;
+       
 }
+
+- (IBAction)cancelButton:(id)sender
+{
+    [connectionToDownload cancel];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (IBAction)backButton:(id)sender
 {
-        //cancel the connection that is downloading
-    [connectionToDownload cancel];
-        //call the delegate to dismiss the viewcontroller
-    [delegate didFinishLoading];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -94,30 +105,31 @@
 //when the download is complete enable the ok button and save the downloaded contents to a file
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
+   
     downloadingLabel.text=@"Download Complete";
    _okButton.enabled=YES;
+    _backButton.enabled=YES;
     [self saveLocally:downloadedData];
-    [downloadedData release];
+    
+  [downloadedData release];
+    downloadedData=nil;
+    
+    [progressView release];
+    progressView=nil;
+   
+    _cancelButton.enabled=NO;
+    [_cancelButton release];
+    _cancelButton=nil;
+    
+    [timeLabel release];
+    timeLabel=nil;
     
 }
 
-- (void)saveLocally:(NSData *)imgData
+- (void)saveLocally:(NSData *)data
 {
-    
-    NSLog(@"%lu",(unsigned long)connectionToDownload.retainCount);
-    NSString *fileToWrite=@"/Users/poojakamath/Desktop/strybrd-master copy 3/download.pdf ";
-    
-        [imgData writeToFile:fileToWrite atomically:YES];
-}
-
-
-- (IBAction)oKButton:(id)sender
-{
-    
-       //load the next view containing a web view to display the pdf
-    UIViewController *pdfView = [self.storyboard instantiateViewControllerWithIdentifier:@"pdfView"];
-    [self.navigationController pushViewController:pdfView animated:YES];
-    
+    NSString *fileToWrite=@"/Users/poojakamath/Desktop/strybrd-master copy 4/download.pdf ";
+           [data writeToFile:fileToWrite atomically:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -125,21 +137,25 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (void)dealloc {
-    
-   
-   [downloadedData release];
+
+- (void)dealloc
+{
+     
+    [downloadedData release];
     downloadedData=nil;
-   [downloadingLabel release];
-    downloadingLabel=nil;
     [progressView release];
     progressView=nil;
-    [timeLabel release];
+      [downloadingLabel release];
+    downloadingLabel=nil;
+       [timeLabel release];
     timeLabel=nil;
-    [_okButton release];
+  [_cancelButton release];
+    _cancelButton=nil;
+    [_backButton release];
+    _backButton=nil;
+          [_okButton release];
     _okButton=nil;
-    [urlToDownload release];
-    urlToDownload=nil;
+       
     [super dealloc];
     
 }
